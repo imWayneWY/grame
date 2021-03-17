@@ -23,3 +23,17 @@ export type validRes = {
 export type PostQueryByIdProps = {
   postId: string;
 }
+
+export type CreatePostProps = {
+  body: string;
+}
+
+export type ContextProps = {
+  token?: string;
+}
+
+export type userTokenProps = {
+  id: string,
+  username: string,
+  email: string,
+}

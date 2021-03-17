@@ -4,15 +4,15 @@ import jwt from "jsonwebtoken";
 import { SECRET_KEY } from "../../config";
 import { UserInputError } from "apollo-server";
 import errors from "../../errorCode";
-import { errorProps, LoginInputProps, RegisterInputProps } from "../../types";
-import { validLoginInput, validRegisiterInput } from "../../utils/validator";
+import { errorProps, LoginInputProps, RegisterInputProps, userTokenProps } from "../../types";
+import { validLoginInput, validRegisiterInput } from "../../utils";
 const genToken = (user: UserDoc) =>
   jwt.sign(
     {
       id: user.id,
       username: user.username,
       email: user.email,
-    },
+    } as userTokenProps,
     SECRET_KEY,
     { expiresIn: "2h" }
   );

@@ -1,5 +1,11 @@
-import {model, Schema} from 'mongoose';
+import mongoose, {model, Schema} from 'mongoose';
 
+export interface PostDoc extends mongoose.Document {
+  body: string,
+  username: string,
+  createAt: string,
+  user: string,
+}
 const postSchema = new Schema({
   body: String,
   username: String,
@@ -23,4 +29,4 @@ const postSchema = new Schema({
   }
 });
 
-export default model('Post', postSchema);
+export default model<PostDoc>('Post', postSchema);

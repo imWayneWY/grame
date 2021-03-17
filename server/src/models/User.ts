@@ -1,6 +1,4 @@
-import { model, Schema } from 'mongoose';
-import mongoose from 'mongoose';
-
+import mongoose, { model, Schema } from 'mongoose';
 export interface UserDoc extends mongoose.Document {
   email: string,
   password: string,

@@ -8,10 +8,14 @@ export default gql`
     body: String!,
     createdAt: String!,
     username: String!
+    user: String!
   }
   extend type Query {
     getPosts: [Post],
     getPost(postId: ID!): Post!,
   }
-
+  extend type Mutation {
+    createPost(body: String!): Result!,
+    deletePost(postId: String!): Result!,
+  }
 `;

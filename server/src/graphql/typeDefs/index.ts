@@ -5,6 +5,10 @@ import user from './user';
 // to be extended on by the Queries and Mutations in 
 // my other files. 
 const root = gql`
+  type Result {
+    success: Boolean
+    message: String
+  }
   type Query {
     root: String
   }

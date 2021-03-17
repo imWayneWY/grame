@@ -13,6 +13,7 @@ const resolvers = {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context: ({req}) => ({token: req.headers.authorization ? req.headers.authorization.split('Bearer ')[1] : undefined}),
 });
 
 mongoose
