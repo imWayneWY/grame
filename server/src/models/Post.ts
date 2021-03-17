@@ -1,16 +1,28 @@
 import mongoose, {model, Schema} from 'mongoose';
-
+interface CommentProps{
+  id?: string,
+  body: string,
+  username: string,
+  createdAt: string,
+}
+interface LikePorps{
+  id?: string,
+  username: string,
+  createdAt: string,
+}
 export interface PostDoc extends mongoose.Document {
   body: string,
   username: string,
   createAt: string,
   user: string,
+  comments: CommentProps[],
+  likes: LikePorps[],
 }
 const postSchema = new Schema({
   body: String,
   username: String,
   createdAt: String,
-  comment: [
+  comments: [
     {
       body: String,
       username: String,
@@ -20,7 +32,7 @@ const postSchema = new Schema({
   likes: [
     {
       username: String,
-      createAt: String,
+      createdAt: String,
     }
   ],
   user: {

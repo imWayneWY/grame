@@ -11,6 +11,12 @@ const errors = {
   LOGIN_PASSWORD_INVALID: {id: 2002, message: 'Password must not be empty'},
   LOGIN_USER_NOT_EXISTED: {id: 2003, message: 'User not found'},
   LOGIN_WRONG_PASSWORD: {id: 2004, message: 'Wrong credentials'},
+
+  // POST ERROR
+  COMMENT_POST_NOT_EXISTED: {id: 3001, message: 'Post not found'},
+  COMMENT_BODY_EMPTY: {id: 3002, message: 'Comment must not be empty'},
+  COMMENT_UNAUTH_DELETE: {id: 3003, message: 'You can not delete other users comments'},
+  LIKE_POST_NOT_EXISTED: {id: 3004, message: 'Post not found'},
 }
 
 export default errors;

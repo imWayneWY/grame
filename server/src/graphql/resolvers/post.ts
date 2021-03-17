@@ -38,11 +38,7 @@ export default {
         user: user.id,
       });
       const res = await newPost.save();
-      if (!!res.id) {
-        return {success: true, message: 'Post success'};
-      } else {
-        return {success: false, message: 'Post fail'};
-      }
+      return res;
     },
     async deletePost(parent: any, args: PostQueryByIdProps, context: ContextProps, info: any) {
       const user = checkAuth(context.token);
@@ -55,11 +51,7 @@ export default {
           if (!!res) {
             return {success: true, message: 'Delete success'};
           } 
-        } else {
-          console.log(post?.user.toString() === user.id);
-          console.log(typeof(post?.user.toString()));
-          console.log(typeof(user.id));
-        }
+        } 
       } catch(err) {
         throw new Error(err);
       }

@@ -37,3 +37,13 @@ export type userTokenProps = {
   username: string,
   email: string,
 }
+
+export type CreateCommentProps = {
+  postId: string;
+  body: string;
+}
+
+export type DeleteCommentProps = {
+  postId: string;
+  commentId: string;
+}
