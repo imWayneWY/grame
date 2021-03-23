@@ -3,6 +3,11 @@ import {gql} from 'apollo-server';
 // Notice: login and register use different way to pass params
 
 export default gql`
+  type UserInfo {
+    email: String!
+    username: String!,
+    createdAt: String!,
+  }
   type Comment {
     id: ID!,
     body: String!,
@@ -19,7 +24,7 @@ export default gql`
     body: String!,
     createdAt: String!,
     username: String!,
-    user: String!,
+    user: UserInfo!,
     comments: [Comment]!,
     likes: [Like]!,
   }

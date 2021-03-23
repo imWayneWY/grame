@@ -1,3 +1,4 @@
+import User from '../../models/User';
 import { ContextProps, CreatePostProps, PostQueryByIdProps } from '../../types';
 import Post from './../../models/Post';
 import {checkAuth} from './../../utils';
@@ -56,6 +57,13 @@ export default {
         throw new Error(err);
       }
       return {success: false, message: 'Delete fail'};
+    }
+  },
+  Post: {
+    async user(parent: any) {
+      console.log(parent);
+      const res = await User.findById(parent.user);
+      return res;
     }
   }
 };
