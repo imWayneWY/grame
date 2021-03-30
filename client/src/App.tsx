@@ -1,9 +1,11 @@
 import React from "react";
 import { ApolloProvider } from "@apollo/react-hooks";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
-import {BrowserRouter as Router, Route} from 'react-router-dom';
-import Home from './pages/Home';
-import Login from './pages/Login';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import MenuBar from "./components/MenuBar";
+import { Container } from "semantic-ui-react";
 import "./App.css";
 
 const client = new ApolloClient({
@@ -14,10 +16,13 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <Router>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/login'component={Login} />
-      </Router>
+      <Container>
+        <Router>
+          <MenuBar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+        </Router>
+      </Container>
     </ApolloProvider>
   );
 }
